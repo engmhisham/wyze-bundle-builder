@@ -1,0 +1,142 @@
+.accordion-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.accordion-step + .accordion-step {
+  margin-top: 13px;
+}
+
+/* "STEP X OF 4" label */
+.accordion-step__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #484848;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  line-height: 1;
+  padding: 0 15px;
+  margin-bottom: 5px;
+}
+
+/* Open step body container */
+.accordion-step__body--open {
+  background: #EDF4FF;
+  border-radius: 10px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Header row — shared between open and collapsed */
+.accordion-step__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  min-height: 26px;
+}
+
+.accordion-step__header--collapsed {
+  padding: 20px 15px;
+  border-top: 0.5px solid #1F1F1F;
+  border-bottom: 0.5px solid #1F1F1F;
+}
+
+.accordion-step__header-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-step__title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.accordion-step__icon {
+  flex-shrink: 0;
+}
+
+.accordion-step__title {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+  color: #1F1F1F;
+  line-height: 22px;
+}
+
+.accordion-step__label--collapsed {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.accordion-step__header-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.accordion-step__count {
+  font-size: 14px;
+  font-weight: 500;
+  color: #4E2FD2;
+  line-height: 16px;
+}
+
+
+/* Content area */
+.accordion-step__content {
+  border-top: 0.5px solid #1F1F1F;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.accordion-step__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.accordion-step__grid > * {
+  width: calc(50% - 8px);
+}
+
+.accordion-step__next-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 5px 24px;
+  line-height: 24px;
+  height: 39px;
+  background: transparent;
+  color: #4E2FD2;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid #4E2FD2;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.accordion-step__next-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}

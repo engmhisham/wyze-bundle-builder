@@ -1,0 +1,28 @@
+.bundle-builder {
+  display: flex;
+  gap: 29px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 49px 122px;
+  align-items: start;
+}
+
+.bundle-builder__main {
+  width: 768px;
+  flex-shrink: 0;
+}
+
+.bundle-builder__accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.bundle-builder__sidebar {
+  position: sticky;
+  top: 24px;
+}
+
+.bundle-builder__mobile-heading {
+  display: none;
+}
+

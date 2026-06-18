@@ -1,0 +1,167 @@
+.product-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 11px;
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.product-card--clickable {
+  cursor: pointer;
+}
+
+.product-card--selected {
+  border-color: rgba(78, 47, 210, 0.7);
+}
+
+.product-card__image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 101px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.product-card__badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #4E2FD2;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  z-index: 1;
+  line-height: 1;
+}
+
+.product-card__image img {
+  max-width: 101px;
+  object-fit: contain;
+}
+
+.product-card__image--centered {
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card__image--centered img {
+  width: 70px;
+  height: 70px;
+}
+
+.product-card__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 10px;
+}
+
+.product-card__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1F1F1F;
+  margin: 0 0 -2px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+}
+
+.product-card__desc {
+  font-size: 12px;
+  color: rgba(31, 31, 31, 0.75);
+  margin: -2px 0 0;
+  line-height: 15.6px;
+  letter-spacing: 0.6px;
+}
+
+.product-card__learn-more {
+  font-size: 12px;
+  color: #0000EE;
+  text-decoration: underline;
+  cursor: pointer;
+  display: inline;
+}
+
+.product-card__variants {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.variant-chip {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 5px;
+  border: 0.5px solid #CCCCCC;
+  border-radius: 2px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 10px;
+  color: #1f1f1f;
+  transition: border-color 0.15s;
+  height: 26px;
+  letter-spacing: 0.6px;
+  line-height: 10px;
+}
+
+.variant-chip--active {
+  border-color: #0AA288;
+  background: rgba(29, 240, 187, 0.04);
+}
+
+.variant-chip__icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
+.variant-chip__label {
+  font-size: 10px;
+}
+
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  gap: 8px;
+}
+
+.product-card__footer--end {
+  justify-content: flex-end;
+}
+
+.product-card__pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.price--compare {
+  font-size: 16px;
+  color: #D8392B;
+  text-decoration: line-through;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+}
+
+.price--active {
+  font-size: 16px;
+  font-weight: 400;
+  color: #575757;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+}

@@ -1,0 +1,165 @@
+/* Responsive overrides */
+@media (max-width: 1280px) {
+  .bundle-builder {
+    padding: 32px 24px;
+  }
+
+  .bundle-builder__main {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .bundle-builder__sidebar {
+    width: 340px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bundle-builder {
+    flex-direction: column;
+    max-width: 700px;
+    padding: 24px 16px;
+  }
+
+  .bundle-builder__main {
+    width: 100%;
+  }
+
+  .bundle-builder__sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .accordion-step__grid > * {
+    width: calc(50% - 8px);
+  }
+}
+
+@media (max-width: 640px) {
+  .bundle-builder {
+    flex-direction: column;
+    align-items: center;
+    padding: 31px 0 0;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .bundle-builder__main {
+    width: 100%;
+  }
+
+  /* No gap between last step and review */
+  .bundle-builder__sidebar {
+    position: static;
+    width: 100%;
+    margin-top: -20px;
+  }
+
+  /* Remove border-radius on mobile */
+  .review-panel {
+    border-radius: 0;
+  }
+
+  .accordion-step__body--open {
+    border-radius: 0;
+  }
+
+  .bundle-builder__main {
+    width: 100%;
+  }
+
+  .bundle-builder__sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .bundle-builder__mobile-heading {
+    display: flex;
+    justify-content: center;
+    width: 348px;
+    font-size: 31.9px;
+    font-weight: 700;
+    color: #1f1f1f;
+    text-align: center;
+    letter-spacing: -0.06px;
+    line-height: 35.1px;
+  }
+
+  /* Accordion step changes */
+  .accordion-step__icon {
+    display: none;
+  }
+
+  .accordion-step__title {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .accordion-step__label {
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  .accordion-step__grid > * {
+    width: 100%;
+  }
+
+  .accordion-step__content {
+    padding: 14px;
+  }
+
+  .accordion-step__header--collapsed {
+    padding: 20px 15px;
+  }
+
+  /* Review panel changes */
+  .review-panel__content {
+    padding: 20px;
+    padding-bottom: 31px;
+  }
+
+  .review-panel__header p {
+    font-size: 12px;
+    line-height: 15.6px;
+  }
+
+  .review-line__name {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .review-line__name--plan {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .review-line__pricing .price--compare {
+    font-size: 12px;
+  }
+
+  .review-line__pricing .price--active {
+    font-size: 12px;
+  }
+
+  .price--free {
+    font-size: 12px;
+  }
+
+  .review-panel__save-link {
+    font-size: 12px;
+    line-height: 14.4px;
+    letter-spacing: -0.02px;
+  }
+
+  .guarantee-badge__img {
+    display: none;
+  }
+
+  .total-price {
+    font-size: 24px;
+  }
+}
