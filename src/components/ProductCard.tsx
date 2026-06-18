@@ -22,7 +22,6 @@ export default function ProductCard({ product }: Props) {
     : currentQty;
 
   const isSelected = totalQty > 0;
-  const displayImage = product.image;
 
   const handleQtyChange = (qty: number) => {
     setQuantity(product.id, selectedVariantId, qty);
@@ -44,7 +43,7 @@ export default function ProductCard({ product }: Props) {
     >
       <div className={`product-card__image ${product.priceLabel ? 'product-card__image--centered' : ''}`}>
         {product.badge && <span className="product-card__badge">{product.badge}</span>}
-        <img src={displayImage} alt={product.name} />
+        <img src={product.image} alt={product.name} />
       </div>
 
       <div className="product-card__info">

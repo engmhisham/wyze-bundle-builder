@@ -45,7 +45,7 @@ function bundleReducer(state: BundleState, action: Action): BundleState {
   }
 }
 
-const isMobile = typeof window !== 'undefined' && window.innerWidth <= 640;
+const isMobile = window.innerWidth <= 640;
 
 const defaultState: BundleState = {
   lineItems: data.initialLineItems as LineItem[],
@@ -57,9 +57,7 @@ interface BundleContextValue {
   setQuantity: (productId: string, variantId: string | undefined, quantity: number) => void;
   setStep: (step: number) => void;
   getQuantity: (productId: string, variantId?: string) => number;
-  getProductTotalQuantity: (productId: string) => number;
   saveSystem: () => void;
-  loadSystem: () => boolean;
 }
 
 const BundleContext = createContext<BundleContextValue | null>(null);
@@ -90,29 +88,12 @@ export function BundleProvider({ children }: { children: ReactNode }) {
     return item?.quantity ?? 0;
   }, [state.lineItems]);
 
-  const getProductTotalQuantity = useCallback((productId: string) => {
-    return state.lineItems
-      .filter(li => li.productId === productId)
-      .reduce((sum, li) => sum + li.quantity, 0);
-  }, [state.lineItems]);
-
   const saveSystem = useCallback(() => {
     localStorage.setItem('wyze-bundle-saved', JSON.stringify(state));
   }, [state]);
 
-  const loadSystem = useCallback(() => {
-    const saved = localStorage.getItem('wyze-bundle-saved');
-    if (saved) {
-      try {
-        dispatch({ type: 'LOAD_STATE', state: JSON.parse(saved) });
-        return true;
-      } catch { /* ignore */ }
-    }
-    return false;
-  }, []);
-
   return (
-    <BundleContext.Provider value={{ state, setQuantity, setStep, getQuantity, getProductTotalQuantity, saveSystem, loadSystem }}>
+    <BundleContext.Provider value={{ state, setQuantity, setStep, getQuantity, saveSystem }}>
       {children}
     </BundleContext.Provider>
   );

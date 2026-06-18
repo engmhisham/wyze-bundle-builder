@@ -16,6 +16,8 @@ interface ReviewLineItem {
   lineComparePrice?: number;
 }
 
+const FINANCING_MONTHS = 10;
+
 export default function ReviewPanel({ products }: Props) {
   const { state, setQuantity, saveSystem } = useBundle();
 
@@ -40,21 +42,17 @@ export default function ReviewPanel({ products }: Props) {
 
   const lineItems = buildLineItems();
 
-  const fastShippingItem = lineItems.find(li => li.product.id === 'fast-shipping');
-  const groupableItems = lineItems.filter(li => li.product.id !== 'fast-shipping');
+  const fastShippingItem = lineItems.find(li => li.product.hideFromGroup);
+  const groupableItems = lineItems.filter(li => !li.product.hideFromGroup);
 
-  const grouped: Record<string, ReviewLineItem[]> = {
-    cameras: [],
-    sensors: [],
-    protection: [],
-    plans: [],
-  };
-
+  const grouped: Record<string, ReviewLineItem[]> = {};
   for (const item of groupableItems) {
     const cat = item.product.category;
-    if (grouped[cat]) grouped[cat].push(item);
+    if (!grouped[cat]) grouped[cat] = [];
+    grouped[cat].push(item);
   }
 
+  const categoryOrder = ['cameras', 'sensors', 'protection', 'plans'] as const;
   const categoryLabels: Record<string, string> = {
     cameras: 'CAMERAS',
     sensors: 'SENSORS',
@@ -86,8 +84,9 @@ export default function ReviewPanel({ products }: Props) {
       </div>
 
       <div className="review-panel__items">
-        {Object.entries(grouped).map(([cat, items]) => {
-          if (items.length === 0) return null;
+        {categoryOrder.map(cat => {
+          const items = grouped[cat];
+          if (!items || items.length === 0) return null;
           return (
             <div key={cat} className="review-panel__group">
               <span className="review-panel__group-label">{categoryLabels[cat]}</span>
@@ -101,12 +100,15 @@ export default function ReviewPanel({ products }: Props) {
                     />
                   )}
                   <div className="review-line__info">
-                    {item.product.id === 'cam-unlimited' ? (
+                    {item.product.isSpecialPlan ? (
                       <span className="review-line__name review-line__name--plan">
                         <span>Cam </span><span className="text-purple">Unlimited</span>
                       </span>
                     ) : (
-                      <span className="review-line__name">{item.product.name}</span>
+                      <span className="review-line__name">
+                        {item.product.name}
+                        {item.variantLabel && ` - ${item.variantLabel}`}
+                      </span>
                     )}
                   </div>
                   {item.product.priceLabel ? (
@@ -180,7 +182,7 @@ export default function ReviewPanel({ products }: Props) {
           <img className="guarantee-badge__img" src="/icons/satisfaction-badge.png" alt="100% satisfaction" />
           <div className="guarantee-info">
             <div className="review-panel__financing">
-              <span className="financing-badge">as low as ${(subtotal / 10).toFixed(2)}/mo</span>
+              <span className="financing-badge">as low as ${(subtotal / FINANCING_MONTHS).toFixed(2)}/mo</span>
             </div>
             <div className="review-panel__total">
               {savings > 0 && (

@@ -79,6 +79,7 @@
       "price": 0.99,
       "compareAtPrice": 2.99,
       "priceLabel": "/mo",
+      "isSpecialPlan": true,
       "category": "plans"
     },
     {
@@ -112,6 +113,8 @@
       "price": 0,
       "compareAtPrice": 5.99,
       "isFreeWithBundle": true,
+      "hideFromGroup": true,
+      "noQuantityInReview": true,
       "category": "protection"
     }
   ],

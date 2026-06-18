@@ -22,6 +22,10 @@ export interface Product {
   priceLabel?: string;
   // For items that are required/free
   isFreeWithBundle?: boolean;
+  // Data-driven flags
+  isSpecialPlan?: boolean;
+  hideFromGroup?: boolean;
+  noQuantityInReview?: boolean;
 }
 
 export interface StepConfig {
@@ -38,8 +42,3 @@ export interface LineItem {
   quantity: number;
 }
 
-export interface BundleState {
-  lineItems: LineItem[];
-  activeStep: number;
-  saved: boolean;
-}

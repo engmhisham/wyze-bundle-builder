@@ -68,19 +68,11 @@
     border-radius: 0;
   }
 
-  .bundle-builder__main {
-    width: 100%;
-  }
-
-  .bundle-builder__sidebar {
-    position: static;
-    width: 100%;
-  }
-
   .bundle-builder__mobile-heading {
     display: flex;
     justify-content: center;
-    width: 348px;
+    max-width: 348px;
+    width: 100%;
     font-size: 31.9px;
     font-weight: 700;
     color: #1f1f1f;
